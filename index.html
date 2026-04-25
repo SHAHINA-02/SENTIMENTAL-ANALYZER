@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Sentiment Analyzer | Arabic & English</title>
+    <meta name="description" content="A premium, browser-based Bilingual Sentiment Analyzer using Transformers.js. Analyze Arabic and English text instantly.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loading-overlay" class="overlay">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2>Initializing AI Model</h2>
+            <p id="loading-status">Downloading model weights (this may take a moment)...</p>
+            <div class="progress-container">
+                <div id="loading-progress" class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo">
+                <span class="icon">🇦🇪</span>
+                <h1>UAE Sentimental</h1>
+            </div>
+            <p class="subtitle">Bilingual AI Sentiment Intelligence</p>
+        </header>
+
+        <section class="analyzer-card">
+            <div class="input-group">
+                <div class="label-row">
+                    <label for="text-input">Enter your text</label>
+                    <span id="lang-indicator" class="badge hidden">Detecting...</span>
+                </div>
+                <textarea id="text-input" placeholder="Type something in English or Arabic..."></textarea>
+                <div class="char-count"><span id="current-chars">0</span> characters</div>
+            </div>
+
+            <div class="presets">
+                <p>Try a sample:</p>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-text="I absolutely love how this app works! So smooth and fast.">English Positive</button>
+                    <button class="preset-btn" data-text="هذا التطبيق رائع جداً وسهل الاستخدام، أحببته كثيراً!">Arabic Positive</button>
+                    <button class="preset-btn" data-text="I'm really disappointed with the recent update, it's very buggy.">English Negative</button>
+                    <button class="preset-btn" data-text="للأسف الخدمة كانت سيئة للغاية والتجربة مخيبة للآمال.">Arabic Negative</button>
+                </div>
+            </div>
+
+            <div id="result-card" class="result-card hidden">
+                <div class="result-header">
+                    <h3>Analysis Result</h3>
+                    <div id="sentiment-badge" class="badge">Neutral</div>
+                </div>
+                
+                <div class="confidence-section">
+                    <div class="confidence-label">
+                        <span>Confidence Score</span>
+                        <span id="confidence-value">0%</span>
+                    </div>
+                    <div class="confidence-bar-container">
+                        <div id="confidence-bar" class="confidence-bar"></div>
+                    </div>
+                </div>
+
+                <div class="sentiment-breakdown">
+                    <div class="sentiment-item" id="breakdown-pos">
+                        <span class="dot pos"></span>
+                        <span class="label">Positive</span>
+                        <span class="value">0%</span>
+                    </div>
+                    <div class="sentiment-item" id="breakdown-neu">
+                        <span class="dot neu"></span>
+                        <span class="label">Neutral</span>
+                        <span class="value">0%</span>
+                    </div>
+                    <div class="sentiment-item" id="breakdown-neg">
+                        <span class="dot neg"></span>
+                        <span class="label">Negative</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <div class="stats-panel">
+                <div class="stat-item">
+                    <span class="stat-label">Total Analyzed</span>
+                    <span id="stat-total" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Top Language</span>
+                    <span id="stat-lang" class="stat-value">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Sentiment Mix</span>
+                    <div class="stat-pie-container">
+                        <div class="stat-mini-bar">
+                            <div id="bar-pos" class="mini-bar-segment pos" style="width: 33%"></div>
+                            <div id="bar-neu" class="mini-bar-segment neu" style="width: 33%"></div>
+                            <div id="bar-neg" class="mini-bar-segment neg" style="width: 34%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-header">
+                <h3>Recent History</h3>
+                <div class="header-actions">
+                    <button id="export-history" class="export-btn">Export CSV</button>
+                    <button id="clear-history" class="clear-btn">Clear All</button>
+                </div>
+            </div>
+            <div id="history-list" class="history-list">
+                <div class="empty-history">No analysis history yet. Try analyzing some text!</div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-header">
+                <h3>About This Project</h3>
+                <div class="header-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-item">
+                    <h4>The Mission</h4>
+                    <p>UAE Sentimental is a state-of-the-art intelligence tool designed to bridge the gap in bilingual digital communication. In the diverse landscape of the UAE, understanding sentiment across both Arabic and English is critical for business intelligence, customer satisfaction, and social harmony.</p>
+                </div>
+                
+                <div class="about-item">
+                    <h4>The Technology</h4>
+                    <p>This application is powered by <strong>Transformers.js</strong>, enabling high-performance AI inference directly in the browser. By leveraging the <strong>Hugging Face</strong> ecosystem, we utilize a distilled multilingual model that provides server-grade accuracy without needing a backend or API keys.</p>
+                </div>
+                
+                <div class="about-item">
+                    <h4>Bilingual Impact</h4>
+                    <p>With auto-detection and RTL (Right-to-Left) support, this tool respects the linguistic nuances of the region. It empowers users to analyze mixed-language data streams in real-time, providing actionable insights with zero data latency and complete privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Powered by Transformers.js • Running entirely in your browser</p>
+        </footer>
+    </main>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
