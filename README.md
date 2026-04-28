@@ -11,7 +11,7 @@ A bilingual AI sentiment analysis tool that detects and classifies sentiment in 
 
 **LIVE DEMO:** https://sentimental-analyzer-ruddy.vercel.app
 
-> SCREENSHOTS-
+> SCREENSHOTS-https://github.com/SHAHINA-02/SENTIMENTAL-ANALYZER/blob/7a46e0e83fcc2ee38fb7d4e170fe05919dd4f185/SENT%20ANALYZER/Screenshot%202026-04-29%20025255.png
 
 ---
 
