@@ -11,7 +11,15 @@ A bilingual AI sentiment analysis tool that detects and classifies sentiment in 
 
 **LIVE DEMO:** https://sentimental-analyzer-ruddy.vercel.app
 
-> SCREENSHOTS-https://github.com/SHAHINA-02/SENTIMENTAL-ANALYZER/blob/7a46e0e83fcc2ee38fb7d4e170fe05919dd4f185/SENT%20ANALYZER/Screenshot%202026-04-29%20025255.png
+ SCREENSHOTS
+ <img width="1862" height="872" alt="Screenshot 2026-04-29 025255" src="https://github.com/user-attachments/assets/fe70d4b8-6a22-454c-8996-fda14c9da246" />
+ <img width="1875" height="876" alt="Screenshot 2026-04-29 025311" src="https://github.com/user-attachments/assets/edd38a51-2c5f-44f9-9f75-b6341adf7e83" />
+ <img width="1889" height="882" alt="Screenshot 2026-04-29 025540" src="https://github.com/user-attachments/assets/c9ba509f-909b-4ef1-bc04-7d7d24cb311d" />
+ <img width="1855" height="882" alt="Screenshot 2026-04-29 025556" src="https://github.com/user-attachments/assets/c3a1e407-c2cd-4a21-aaf0-3cb0e64c5273" />
+
+
+
+
 
 ---
 
